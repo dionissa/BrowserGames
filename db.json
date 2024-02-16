@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": "cccd",
+      "username": "admin",
+      "password": "admin",
+      "displayName": "Administrador",
+      "genres": [
+        "Shooter",
+        "MMOARPG",
+        "ARPG",
+        "Action RPG",
+        "Battle Royale",
+        "MMORPG",
+        "Fighting",
+        "MOBA",
+        "Strategy",
+        "Card"
+      ]
+    },
+    {
+      "id": "8fc2",
+      "username": "dionissa",
+      "password": "123",
+      "displayName": "Dionissa",
+      "email": "teste@gmail.com",
+      "dateOfBirth": "1995-01-23",
+      "state": "SC",
+      "country": "brasil",
+      "genres": [
+        "Card"
+      ],
+      "favoriteGenres": [
+        "Card"
+      ]
+    }
+  ]
+}
