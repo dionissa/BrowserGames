@@ -63,19 +63,10 @@ const EditInfoPage = ({ user, updateUser }) => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-800 text-white">
-      <h2 className="text-3xl font-semibold mb-4">Edit Information</h2>
+      <h2 className="text-3xl font-semibold mb-4">Editar informações</h2>
       {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
       {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
       <form onSubmit={handleSubmit} className="bg-gray-700 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md">
-        <div className="mb-4">
-          <label className="block text-gray-200 text-sm font-bold mb-2">Display Name:</label>
-          <input
-            type="text"
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-            className="form-input mt-1 block w-full rounded-md bg-gray-900 border-gray-700 text-gray-200"
-          />
-        </div>
         <div className="mb-4">
           <label className="block text-gray-200 text-sm font-bold mb-2">Email:</label>
           <input
@@ -86,7 +77,7 @@ const EditInfoPage = ({ user, updateUser }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-200 text-sm font-bold mb-2">Date of Birth:</label>
+          <label className="block text-gray-200 text-sm font-bold mb-2">Data de Nascimento:</label>
           <input
             type="date"
             value={dateOfBirth}
@@ -95,7 +86,7 @@ const EditInfoPage = ({ user, updateUser }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-200 text-sm font-bold mb-2">State:</label>
+          <label className="block text-gray-200 text-sm font-bold mb-2">Estado:</label>
           <input
             type="text"
             value={state}
@@ -104,7 +95,7 @@ const EditInfoPage = ({ user, updateUser }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-200 text-sm font-bold mb-2">Country:</label>
+          <label className="block text-gray-200 text-sm font-bold mb-2">País:</label>
           <input
             type="text"
             value={country}
@@ -113,7 +104,7 @@ const EditInfoPage = ({ user, updateUser }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-200 text-sm font-bold mb-2">New Password:</label>
+          <label className="block text-gray-200 text-sm font-bold mb-2">Nova Senha:</label>
           <input
             type="password"
             value={password}
@@ -122,7 +113,7 @@ const EditInfoPage = ({ user, updateUser }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-200 text-sm font-bold mb-2">Confirm New Password:</label>
+          <label className="block text-gray-200 text-sm font-bold mb-2">Confirmar nova senha:</label>
           <input
             type="password"
             value={confirmPassword}
@@ -131,7 +122,7 @@ const EditInfoPage = ({ user, updateUser }) => {
           />
         </div>
         <div className="mb-4">
-  <label className="block text-gray-200 text-sm font-bold mb-2">Favorite Genres:</label>
+  <label className="block text-gray-200 text-sm font-bold mb-2">Gêneros Favoritos:</label>
   <div className="flex flex-wrap">
     {[
       'Shooter',
@@ -162,13 +153,13 @@ const EditInfoPage = ({ user, updateUser }) => {
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
-            Save Changes
+            Salvar Alterações
           </button>
           <Link
             to="/main"
             className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
           >
-            Cancel
+            Cancelar
           </Link>
         </div>
       </form>

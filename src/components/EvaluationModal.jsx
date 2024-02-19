@@ -33,7 +33,7 @@ const EvaluationModal = ({ onClose, onSubmit, game }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none bg-gray-800 bg-opacity-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none bg-gray-700 bg-opacity-50">
       <div className="relative w-auto max-w-md mx-auto my-6">
         <div className="relative bg-white shadow-lg rounded-md text-gray-900">
           <div className="flex items-center justify-between p-5 border-b border-gray-300 border-solid rounded-t">
@@ -52,9 +52,9 @@ const EvaluationModal = ({ onClose, onSubmit, game }) => {
               value={description}
               onChange={handleDescriptionChange}
               className="w-full border rounded-md p-2 mb-4"
-              placeholder="Enter description..."
+              placeholder="Comentário..."
             />
-            <label htmlFor="rating" className="block text-sm font-medium text-gray-700 mb-2">Rating:</label>
+            <label htmlFor="rating" className="block text-sm font-medium text-gray-700 mb-2">Avaliação:</label>
             <div className="flex mb-4">{renderStars()}</div>
           </div>
           <div className="flex items-center justify-end p-2 border-t border-gray-300 border-solid rounded-b">

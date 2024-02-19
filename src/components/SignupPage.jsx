@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -65,6 +66,7 @@ const SignupPage = () => {
 
     try {
       const newUser = {
+        name,
         password,
         email,
         dateOfBirth,
@@ -102,16 +104,18 @@ const SignupPage = () => {
       {successMessage && <p className="text-green-500 mb-4">{successMessage}</p>}
       <form onSubmit={handleSubmit} className="bg-gray-700 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
         <div className="mb-4">
-          <label className="block text-gray-200 text-sm font-bold mb-2" htmlFor="username">
+          <label className="block text-gray-200 text-sm font-bold mb-2" htmlFor="name">
             Usuário
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="username"
-            type="text"
-            placeholder="Usuário"
-            required
-          />
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="name"
+              type="text"
+              placeholder="Usuário"
+              value={name} // This should be the value of your name state
+              onChange={(e) => setName(e.target.value)} // This handler updates the name state
+              required
+            />
         </div>
         <div className="mb-4">
           <label className="block text-gray-200 text-sm font-bold mb-2" htmlFor="favorite-genres">
