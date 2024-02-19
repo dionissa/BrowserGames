@@ -35,7 +35,10 @@ const Navbar = ({ user, handleLogout, handleWelcomeWasClicked, isAdmin, gamesArr
   return (
     <nav className="navbar p-4 flex justify-between items-center bg-gray-700 text-white">
       <div className="navbar__left flex-1">
-        <Link to="/main" className="text-xl font-bold p-4">BrowserGames</Link>
+        <Link to="/main" className="text-xl font-bold p-4 flex items-center">
+          BrowserGames
+          <img src="./yoshi.gif" alt="" className='size-10'/>
+          </Link>
       </div>
       <div className="navbar__center flex-1 flex gap-2 justify-center items-center">
         <input
