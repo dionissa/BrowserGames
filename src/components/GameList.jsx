@@ -35,7 +35,6 @@ const GameList = ({ games, userGenres, user }) => {
     }
   }, [user, userGenres]);
 
-  // Shuffle the games array
   const shuffledGames = games.sort(() => 0.5 - Math.random());
 
   return (
