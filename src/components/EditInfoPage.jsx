@@ -49,7 +49,7 @@ const EditInfoPage = ({ user, updateUser }) => {
       if (password && confirmPassword && password === confirmPassword) {
         updatedUser.password = password;
       }
-      await axios.put(`http://localhost:3000/users/${user.id}`, updatedUser);
+      await axios.put(`https://65d00206bdb50d5e5f5bfd9a.mockapi.io/users/${user.id}`, updatedUser);
       updateUser(updatedUser);
       setSuccessMessage('User information updated successfully!');
       setErrorMessage('');
@@ -59,6 +59,7 @@ const EditInfoPage = ({ user, updateUser }) => {
       setSuccessMessage('');
     }
   };
+  
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-800 text-white">
