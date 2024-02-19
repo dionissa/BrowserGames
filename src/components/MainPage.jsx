@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { FaGamepad } from 'react-icons/fa';
 import GameList from './GameList';
 
-const MainPage = ({ user, filteredGames }) => { // Receive filteredGames prop
+const MainPage = ({ user, filteredGames }) => {
   const [userGenres, setUserGenres] = useState([]);
 
   useEffect(() => {

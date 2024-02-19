@@ -33,6 +33,19 @@
       "favoriteGenres": [
         "Card"
       ]
+    },
+    {
+      "id": "82eb",
+      "username": "dionissa2",
+      "password": "123",
+      "displayName": "Dionissa",
+      "email": "teste@gmail.com",
+      "dateOfBirth": "1995-01-23",
+      "state": "Santa Catarina",
+      "country": "Brasil",
+      "genres": [
+        "Card"
+      ]
     }
   ]
 }

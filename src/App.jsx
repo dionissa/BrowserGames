@@ -42,7 +42,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar user={user} handleLogout={handleLogout} handleWelcomeWasClicked={handleWelcomeWasClicked} isAdmin={isAdmin} gamesArray={gamesArray} setFilteredGames={setFilteredGames} /> {/* Pass setFilteredGames to Navbar */}
+      <Navbar user={user} handleLogout={handleLogout} handleWelcomeWasClicked={handleWelcomeWasClicked} isAdmin={isAdmin} gamesArray={gamesArray} setFilteredGames={setFilteredGames} />
       {!welcomeWasClicked && <Welcome handleWelcomeWasClicked={handleWelcomeWasClicked} />}
       <Routes>
         <Route path="/login" element={<LoginPage setUser={setUser} determineAdminStatus={determineAdminStatus} />} />

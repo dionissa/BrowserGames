@@ -5,7 +5,7 @@ import axios from 'axios';
 const LoginPage = ({ setUser: setUserProp, determineAdminStatus }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [userState, setUserState] = useState(null); // Define user state
+  const [userState, setUserState] = useState(null);
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
@@ -19,27 +19,25 @@ const LoginPage = ({ setUser: setUserProp, determineAdminStatus }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    const username = e.target.username.value;
+    const email = e.target.email.value;
     const password = e.target.password.value;
   
     try {
-      const response = await axios.get(`http://localhost:3000/users?username=${username}&password=${password}`);
+      const response = await axios.get('https://65d00206bdb50d5e5f5bfd9a.mockapi.io/users');
+      const users = response.data;
   
-      if (response.data.length > 0) {
-        const user = response.data[0];
+      const user = users.find(user => user.email === email && user.password === password);
+  
+      if (user) {
         setUserState(user);
         setUserProp(user);
-        if (user.username === "admin") {
-          user.isAdmin = true;
-        }
         determineAdminStatus(user);
-  
         navigate('/main');
       } else {
-        setErrorMessage('Usuário ou senha incorretos.');
+        setErrorMessage('E-mail ou senha incorretos.');
       }
     } catch (error) {
+      console.error('Login error:', error);
       setErrorMessage('Erro ao fazer login. Tente novamente mais tarde.');
     }
   };
@@ -49,30 +47,32 @@ const LoginPage = ({ setUser: setUserProp, determineAdminStatus }) => {
       <h2 className="text-3xl font-semibold mb-4">Entrar</h2>
       {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
       <form onSubmit={handleSubmit} className="bg-gray-700 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
-        <div className="mb-4">
-          <label className="block text-gray-200 text-sm font-bold mb-2" htmlFor="username">
-            Usuário
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="username"
-            type="text"
-            placeholder="Usuário"
-            required
-          />
-        </div>
-        <div className="mb-6">
-          <label className="block text-gray-200 text-sm font-bold mb-2" htmlFor="password">
-            Senha
-          </label>
-          <div className="relative">
+  <div className="mb-4">
+    <label className="block text-gray-200 text-sm font-bold mb-2" htmlFor="username">
+      E-mail
+    </label>
+    <input
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="email"
+        name="email"
+        type="email"
+        placeholder="E-mail"
+        required
+      />
+  </div>
+  <div className="mb-6">
+    <label className="block text-gray-200 text-sm font-bold mb-2" htmlFor="password">
+      Senha
+    </label>
+    <div className="relative">
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="password"
-              type={showPassword ? 'text' : 'password'}
-              placeholder="Senha"
-              required
-            />
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="password"
+          name="password"
+          type={showPassword ? 'text' : 'password'}
+          placeholder="Senha"
+          required
+        />
             <button
               className="absolute right-0 top-0 mt-2 mr-3 focus:outline-none"
               onClick={togglePasswordVisibility}

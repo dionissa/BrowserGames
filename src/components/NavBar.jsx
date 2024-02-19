@@ -65,7 +65,8 @@ const Navbar = ({ user, handleLogout, handleWelcomeWasClicked, isAdmin, gamesArr
 
         {user ? (
           <>
-            <p className="text-white mr-4">Olá, {user.displayName}</p>
+            <p className="text-white mr-4">Olá, {user.name}</p>
+            <img className='h-8 w-8 rounded-full' src={user.avatar} alt="" />
             <Link to="/edit-info" className="btn transition-all duration-300 ease-in-out bg-yellow-500 px-4 py-2 rounded-md text-white hover:bg-yellow-700 hover:px-4 hover:py-2">Editar Conta</Link>
             {isAdmin && <Link to="/add-game" className="btn transition-all duration-300 ease-in-out bg-green-500 px-4 py-2 rounded-md text-white hover:bg-green-700 hover:px-4 hover:py-2">Adicionar Jogo</Link>}
             <Link to="/main" onClick={handleLogoutClick} className="btn transition-all duration-300 ease-in-out bg-red-500 px-4 py-2 rounded-md text-white hover:bg-red-700 hover:px-4 hover:py-2">Logout</Link>

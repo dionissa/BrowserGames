@@ -58,29 +58,21 @@ const SignupPage = () => {
       return;
     }
 
-    // Add validation for the new fields
     if (!email || !dateOfBirth || !state || !country) {
       setErrorMessage('Por favor, preencha todos os campos.');
       return;
     }
 
     try {
-      const existingUsernames = await axios.get('http://localhost:3000/users?username=' + e.target.username.value);
-      if (existingUsernames.data.length > 0) {
-        setErrorMessage('O nome de usuário já está em uso. Por favor, escolha outro.');
-        return;
-      }
       const newUser = {
-        username: e.target.username.value,
         password,
-        displayName: e.target.displayName.value,
         email,
         dateOfBirth,
         state,
         country,
         genres: selectedGenres
       };
-      await axios.post('http://localhost:3000/users', newUser);
+      await axios.post('https://65d00206bdb50d5e5f5bfd9a.mockapi.io/users', newUser);
       setSuccessMessage('Conta criada com sucesso!');
       setTimeout(() => {
         setSuccessMessage('');
